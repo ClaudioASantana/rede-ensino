@@ -1,0 +1,10 @@
+model Answers {
+  id        Int   @default(autoincrement()) @id
+  body      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    Int
+  questionId Int
+  user      User     @relation(fields: [userId], references: [id])
+  question  Questions @relation(fields: [questionId], references: [id])
+}
